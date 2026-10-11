@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Consola de Operacion - Cable Tartak</title>
+<link rel="stylesheet" href="/consola/assets/consola.css" />
+</head>
+<body>
+
+<div id="login" class="login">
+  <form class="login-card" id="login-form">
+    <div class="marca">
+      <span class="punto"></span> CABLE TARTAK
+    </div>
+    <h1>Consola de operacion</h1>
+    <p class="sub">Acceso exclusivo del personal de oficina. La clave es la misma de la API.</p>
+    <label for="clave">Clave de administracion</label>
+    <input id="clave" type="password" autocomplete="current-password" required />
+    <p class="error" id="login-error" hidden></p>
+    <button type="submit">Entrar</button>
+  </form>
+</div>
+
+<div id="app" hidden>
+  <header>
+    <div class="marca"><span class="punto"></span> CABLE TARTAK</div>
+    <div class="acciones">
+      <span id="reloj"></span>
+      <button id="salir" class="fantasma">Cerrar sesion</button>
+    </div>
+  </header>
+
+  <section class="tarjetas" id="resumen"></section>
+
+  <main>
+    <form class="buscador" id="form-buscar">
+      <input id="q" type="search" placeholder="Cedula, nombre, plan, telefono, codigo de ticket, referencia de pago, periodo de factura..." autocomplete="off" />
+      <button type="submit">Buscar</button>
+    </form>
+    <p class="pista" id="pista">
+      Escribe al menos 2 caracteres. La busqueda recorre clientes, tickets, pagos, solicitudes y facturas a la vez.
+    </p>
+
+    <div class="filtros" id="filtros" hidden>
+      <button data-tipo="clientes" class="activo">Clientes</button>
+      <button data-tipo="tickets">Tickets</button>
+      <button data-tipo="pagos">Pagos</button>
+      <button data-tipo="solicitudes">Solicitudes</button>
+      <button data-tipo="facturas">Facturas</button>
+    </div>
+
+    <div id="resultados"></div>
+  </main>
+</div>
+
+<script src="/consola/assets/consola.js"></script>
+</body>
+</html>

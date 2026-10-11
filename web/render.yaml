@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: cable-tartak
+    runtime: docker
+    plan: starter
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    disk:
+      name: cable-tartak-data
+      mountPath: /app/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: CABLE_TARTAK_DB
+        value: /app/data/cable-tartak.sqlite

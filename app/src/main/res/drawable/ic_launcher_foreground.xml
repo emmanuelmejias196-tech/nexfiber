@@ -1,0 +1,43 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- Outer WiFi / Fiber pulse wave top -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M34,36 C45,26 63,26 74,36 L70,40 C61,32 47,32 38,40 Z" />
+    
+    <!-- Mid WiFi / Fiber wave -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M40,44 C48,36 60,36 68,44 L64,48 C58,42 50,42 44,48 Z" />
+
+    <!-- Center Fiber Core Node -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,49 A5,5 0 1 1 53.99,49 Z" />
+
+    <!-- Stylized Modern 'T' Monogram with Fiber Optic Lines -->
+    <!-- Horizontal Crossbar of T with fiber cable connectors -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M28,58 L80,58 L80,66 L60,66 L60,86 L48,86 L48,66 L28,66 Z" />
+
+    <!-- Fiber Speed Light Streaks -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M31,60 L77,60 L77,62 L31,62 Z" />
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M52,66 L56,66 L56,84 L52,84 Z" />
+
+    <!-- Glow Accents at cable ends -->
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M25,60 L27,60 L27,64 L25,64 Z" />
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M81,60 L83,60 L83,64 L81,64 Z" />
+</vector>

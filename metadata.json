@@ -1,0 +1,6 @@
+{
+  "name": "Cable Tartak",
+  "description": "App móvil oficial de clientes de Cable Tartak: validación de contratos por cédula, activación de cuentas, estado de fibra óptica y reporte de averías técnicas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

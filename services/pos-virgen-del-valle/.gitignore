@@ -1,0 +1,16 @@
+node_modules/
+build/
+dist/
+coverage/
+dev-dist/
+android/
+release/
+signing/
+.DS_Store
+*.log
+*.jks
+*.keystore
+.env*
+!-DESKTOP-*
+*-DESKTOP-*
+!.env.example

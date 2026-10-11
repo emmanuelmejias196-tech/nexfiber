@@ -1,0 +1,69 @@
+services:
+  - type: web
+    name: virgen-del-valle-api
+    runtime: node
+    plan: free
+    region: virginia
+    branch: main
+    repo: https://github.com/oscar12198512-ui/virgen-del-valle
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: "10000"
+      - key: NODE_ENV
+        value: production
+      - key: APP_URL
+        value: "https://virgen-del-valle-web.onrender.com"
+      - key: CORS_ORIGIN
+        value: "https://virgen-del-valle-web.onrender.com,http://localhost:3000,http://localhost:5173,https://localhost"
+      - key: VITE_FIREBASE_API_KEY
+        value: "AIzaSyAnMvY9S2ZCRwaY-rCzMnSUGe6XSY7kl5k"
+      - key: VITE_FIREBASE_AUTH_DOMAIN
+        value: "playa-buche-pos.firebaseapp.com"
+      - key: VITE_FIREBASE_PROJECT_ID
+        value: "playa-buche-pos"
+      - key: VITE_FIREBASE_STORAGE_BUCKET
+        value: "playa-buche-pos.firebasestorage.app"
+      - key: VITE_FIREBASE_MESSAGING_SENDER_ID
+        value: "637742279156"
+      - key: VITE_FIREBASE_APP_ID
+        value: "1:637742279156:web:daa2a086b0b82d6ecc31a1"
+      - key: VITE_FIREBASE_MEASUREMENT_ID
+        value: "G-705S44KGDC"
+      - key: OWNER_NAME
+        value: "Emmanuel Mejías"
+      - key: OWNER_PHONE
+        value: "04127939128"
+      - key: OWNER_EMAIL
+        value: "Emmanuelmejias2616@gmail.com"
+
+  - type: static
+    name: virgen-del-valle-web
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    region: virginia
+    branch: main
+    repo: https://github.com/oscar12198512-ui/virgen-del-valle
+    autoDeploy: true
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    envVars:
+      - key: VITE_FIREBASE_API_KEY
+        value: "AIzaSyAnMvY9S2ZCRwaY-rCzMnSUGe6XSY7kl5k"
+      - key: VITE_FIREBASE_AUTH_DOMAIN
+        value: "playa-buche-pos.firebaseapp.com"
+      - key: VITE_FIREBASE_PROJECT_ID
+        value: "playa-buche-pos"
+      - key: VITE_FIREBASE_STORAGE_BUCKET
+        value: "playa-buche-pos.firebasestorage.app"
+      - key: VITE_FIREBASE_MESSAGING_SENDER_ID
+        value: "637742279156"
+      - key: VITE_FIREBASE_APP_ID
+        value: "1:637742279156:web:daa2a086b0b82d6ecc31a1"
+      - key: VITE_FIREBASE_MEASUREMENT_ID
+        value: "G-705S44KGDC"

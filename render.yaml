@@ -1,0 +1,76 @@
+# =====================================================================
+# Cable Tartak - despliegue en Render (monorepo)
+# Documentacion: https://render.com/docs/blueprint-spec
+#
+# Uso:
+#   1. Sube el repositorio a GitHub.
+#   2. En Render: New > Blueprint > selecciona el repositorio.
+#   3. Render lee este archivo, crea la base de datos y el web service,
+#      y genera los valores de las variables marcadas sync: false.
+# =====================================================================
+
+databases:
+  - name: cable-tartak-db
+    databaseName: cable_tartak
+    user: tartak
+    plan: free
+    postgresMajorVersion: "16"
+
+services:
+  - type: web
+    name: cable-tartak-api
+    runtime: node
+    plan: free
+    region: frankfurt
+    rootDir: .
+    buildCommand: npm --prefix backend ci --omit=dev && npm --prefix backend run migrate
+    startCommand: node backend/src/server.js
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: APP_VERSION
+        value: 1.0.0
+      - key: LOG_LEVEL
+        value: info
+      - key: MIGRATE_ON_BOOT
+        value: "false"
+      # La cadena de conexion la inyecta Render desde la base de datos de arriba.
+      - key: DATABASE_URL
+        fromDatabase:
+          name: cable-tartak-db
+          property: connectionString
+      - key: DATABASE_SSL
+        value: "true"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_ISSUER
+        value: cable-tartak-api
+      - key: JWT_ACCESS_TTL
+        value: 1800
+      - key: REFRESH_TOKEN_TTL_DAYS
+        value: 30
+      - key: BCRYPT_ROUNDS
+        value: 12
+      - key: ACTIVATION_REQUIRES_OTP
+        value: "false"
+      # Genera el valor en el panel de Render y pegalo aqui en el primer deploy.
+      - key: ADMIN_API_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: "*"
+      - key: RATE_LIMIT_GLOBAL
+        value: 600
+      - key: RATE_LIMIT_AUTH
+        value: 10
+      - key: RATE_LIMIT_WRITE
+        value: 60
+      - key: PASSWORD_MIN_LENGTH
+        value: 6
+      - key: C2P_REQUIRE_SIGNATURE
+        value: "false"
+      - key: C2P_SIGNATURE_SECRET
+        generateValue: true

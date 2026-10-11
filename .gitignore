@@ -1,0 +1,82 @@
+# ---------------------------------------------------------------------
+# Secretos y configuracion local (NEXFIBER)
+# ---------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+web/.env
+web/.env.*
+!web/.env.example
+services/*/.env
+services/*/.env.*
+!services/*/.env.example
+*.jks
+*.keystore
+signing/
+secrets_info.txt
+keystore_base64.txt
+my-upload-key.jks
+google-services.json
+serviceAccountKey*.json
+secrets.properties
+local.properties
+
+# ---------------------------------------------------------------------
+# Node / Frontend / Web / Services
+# ---------------------------------------------------------------------
+node_modules/
+dist/
+build/
+coverage/
+.nyc_output/
+*.tsbuildinfo
+.pgpass
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---------------------------------------------------------------------
+# Bases de datos locales
+# ---------------------------------------------------------------------
+data/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+*.db
+
+# ---------------------------------------------------------------------
+# Android / Gradle
+# ---------------------------------------------------------------------
+.gradle/
+*/build/
+captures/
+.cxx/
+.externalNativeBuild/
+
+# ---------------------------------------------------------------------
+# Artefactos y archivos pesados
+# ---------------------------------------------------------------------
+*.apk
+*.aab
+*.ap_
+*.dex
+*.zip
+release/
+
+# ---------------------------------------------------------------------
+# IDEs y Sistema Operativo
+# ---------------------------------------------------------------------
+.idea/
+*.iml
+*.hprof
+.fleet/
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/settings.json.example
+*.swp
+

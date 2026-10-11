@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: API (Node)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Comprobar sintaxis
+        run: npm run lint
+
+      - name: Ejecutar pruebas
+        run: npm test
+        env:
+          NODE_ENV: test
+          JWT_SECRET: clave-ci-solo-para-pruebas
+          ADMIN_API_KEY: clave-admin-ci
+
+  android:
+    name: App (Android)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: android-actions/setup-android@v3
+
+      - name: Componer el proyecto Gradle
+        run: ./gradlew --no-daemon assembleDebug
+
+      - name: Ejecutar pruebas unitarias
+        run: ./gradlew --no-daemon testDebugUnitTest
+
+      - name: Subir APK de depuracion
+        uses: actions/upload-artifact@v4
+        with:
+          name: cable-tartak-debug
+          path: app/build/outputs/apk/debug/app-debug.apk
+          retention-days: 14
+          if-no-files-found: ignore
