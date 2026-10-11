@@ -7,13 +7,13 @@ const { prepararEntorno, crearCliente, limpiar, db } = require('./helpers');
 
 const CLAVE = 'Tartak2026';
 
-test('API de Cable Tartak', async (t) => {
+test('API de NEXFIBER', async (t) => {
   const { app } = await prepararEntorno();
 
   await t.test('raiz responde el mensaje de compatibilidad', async () => {
     const res = await request(app).get('/');
     assert.equal(res.status, 200);
-    assert.match(res.text, /Servidor Central de Cable Tartak/);
+    assert.match(res.text, /Servidor Central (NEXFIBER|de Cable Tartak)/);
   });
 
   await t.test('health reporta el estado de la base de datos', async () => {

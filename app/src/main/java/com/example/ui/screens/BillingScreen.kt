@@ -463,7 +463,7 @@ fun BillingScreen(
             },
             text = {
                 Text(
-                    "La factura ${fact.mes} ($${fact.monto}) se solicita al servidor de Cable Tartak. " +
+                    "La factura ${fact.mes} ($${fact.monto}) se solicita al servidor de NEXFIBER. " +
                         "Cuando el documento fiscal esté disponible se descargará desde el portal de clientes."
                 )
             },
@@ -490,7 +490,7 @@ fun BillingScreen(
                 }
             },
             text = {
-                Text("El comprobante llegó al servidor de Cable Tartak. Administración validará la transacción.")
+                Text("El comprobante llegó al servidor de NEXFIBER. Administración validará la transacción.")
             },
             confirmButton = {
                 Button(

@@ -721,7 +721,7 @@ fun MiFibraOverviewTab(
 
                 Text(
                     text = if (state.diagnostico.esMedicionEnviadaAlServidor) {
-                        "Medición registrada en el servidor central de Cable Tartak."
+                        "Medición registrada en el servidor central de NEXFIBER."
                     } else {
                         "Estimación realizada en este dispositivo. No es una medición del centro de operaciones."
                     },

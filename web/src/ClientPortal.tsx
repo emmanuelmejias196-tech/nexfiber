@@ -167,7 +167,7 @@ export default function ClientPortal() {
   return (
     <main className="min-h-screen bg-slate-950 px-4 py-8 text-white sm:py-12">
       <div className="mx-auto max-w-3xl">
-        <a href="/" className="text-sm font-bold text-cyan-300 hover:text-cyan-200">Cable Tartak</a>
+        <a href="/" className="text-sm font-bold text-cyan-300 hover:text-cyan-200">NEXFIBER</a>
         <header className="mb-8 mt-8 border-b border-slate-800 pb-5">
           <p className="text-xs font-bold uppercase text-cyan-300">Atención al cliente</p>
           <h1 className="mt-2 text-3xl font-black">¿Qué necesitas resolver?</h1>

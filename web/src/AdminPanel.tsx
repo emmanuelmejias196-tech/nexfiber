@@ -2618,7 +2618,7 @@ export default function AdminPanel({ assignedRole, userRealName = 'Operador', cu
               <Wifi className="w-8 h-8 text-white stroke-[2.5]" />
             </div>
             <h1 className="text-3xl font-extrabold tracking-tight bg-gradient-to-r from-blue-400 via-cyan-300 to-white bg-clip-text text-transparent">
-              CABLE TARTAK WEB
+              NEXFIBER WEB
             </h1>
             <p className="text-sm text-slate-400 mt-1">
               Plataforma Central de Gestión ISP FTTH & OLT
@@ -2704,7 +2704,7 @@ export default function AdminPanel({ assignedRole, userRealName = 'Operador', cu
 
           <div className="text-center mt-6 text-xs text-slate-500 flex items-center justify-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span>Servidor Central FTTH Listo • Cable Tartak v2.4</span>
+            <span>Servidor Central FTTH Listo • NEXFIBER v2.4</span>
           </div>
         </div>
       </div>
@@ -2726,7 +2726,7 @@ export default function AdminPanel({ assignedRole, userRealName = 'Operador', cu
               </div>
               <div>
                 <h3 className="text-base font-black tracking-wider text-white">
-                  CABLE TARTAK
+                  NEXFIBER
                 </h3>
                 <span className="text-[10px] uppercase font-bold tracking-widest text-cyan-400">
                   Fiber ISP Network

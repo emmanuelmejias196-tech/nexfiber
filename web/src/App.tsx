@@ -71,7 +71,7 @@ function PublicLandingPage({
       <header className="border-b border-slate-800 bg-slate-950/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
           <div>
-            <div className="text-xl font-black tracking-tight text-cyan-300">Cable Tartak</div>
+            <div className="text-xl font-black tracking-tight text-cyan-300">NEXFIBER</div>
             <div className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400">Fibra óptica • Venezuela</div>
           </div>
           <div className="flex items-center gap-3 text-sm">
@@ -369,7 +369,7 @@ export default function App() {
   if (window.location.pathname === '/cliente') return <ClientPortal />;
 
   if (isCheckingSession) {
-    return <div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">Conectando con Cable Tartak...</div>;
+    return <div className="min-h-screen bg-slate-900 flex items-center justify-center text-white">Conectando con NEXFIBER...</div>;
   }
 
   if (!isLogged) {

@@ -126,7 +126,7 @@ fun RegistroScreen(
                 Spacer(modifier = Modifier.height(12.dp))
 
                 Text(
-                    text = "Cable Tartak Móvil",
+                    text = "NEXFIBER Móvil",
                     fontSize = 24.sp,
                     fontWeight = FontWeight.ExtraBold,
                     color = Color.White
@@ -230,7 +230,7 @@ fun RegistroScreen(
                     Spacer(modifier = Modifier.height(10.dp))
 
                     Text(
-                        text = "Bienvenido. Introduce tu Cédula de Identidad precargada por la oficina de Cable Tartak:",
+                        text = "Bienvenido. Introduce tu Cédula de Identidad precargada por la oficina de NEXFIBER:",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -529,7 +529,7 @@ fun RegistroScreen(
                     )
                     Spacer(modifier = Modifier.height(4.dp))
                     Text(
-                        text = "Ingresa con tu Cédula y contraseña de cliente Cable Tartak:",
+                        text = "Ingresa con tu Cédula y contraseña de cliente NEXFIBER:",
                         fontSize = 13.sp,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )

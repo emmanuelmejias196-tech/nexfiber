@@ -35,7 +35,7 @@ fun OficinaAdminDialog(
         onDismissRequest = onDismiss,
         title = {
             Text(
-                text = "Oficina Cable Tartak - Precargar Cliente",
+                text = "Oficina NEXFIBER - Precargar Cliente",
                 fontWeight = FontWeight.Bold,
                 fontSize = 17.sp
             )

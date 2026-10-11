@@ -19,7 +19,7 @@ const consolaRoutes = require('./routes/consola.routes');
 const legacyRoutes = require('./routes/legacy.routes');
 
 const MENSAJE_RAIZ =
-  '⚡ Servidor Central de Cable Tartak con Multi-usuarios Operando.';
+  '⚡ Servidor Central NEXFIBER con Multi-usuarios Operando.';
 
 function crearApp() {
   const app = express();

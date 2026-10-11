@@ -44,7 +44,7 @@ import com.example.ui.theme.TartakSuccessGreen
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TartakTopBar(
-    title: String = "Cable Tartak",
+    title: String = "NEXFIBER",
     subtitle: String? = null,
     isOnline: Boolean = true,
     onOpenSearch: (() -> Unit)? = null,
@@ -71,7 +71,7 @@ fun TartakTopBar(
             ) {
                 Icon(
                     imageVector = Icons.Default.Router,
-                    contentDescription = "Logo Tartak",
+                    contentDescription = "Logo NEXFIBER",
                     tint = TartakElectricCyan,
                     modifier = Modifier.size(22.dp)
                 )

@@ -70,7 +70,7 @@ export default function ClientPayment() {
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'No se pudo registrar el comprobante.');
       setSubmitted(true);
-      setMessage('Comprobante recibido. El pago queda pendiente de verificación por Cable Tartak.');
+      setMessage('Comprobante recibido. El pago queda pendiente de verificación por NEXFIBER.');
     } catch (error) {
       setMessage(error instanceof Error ? error.message : 'No se pudo enviar el comprobante.');
     } finally {
@@ -81,7 +81,7 @@ export default function ClientPayment() {
   return (
     <main className="min-h-screen bg-slate-950 px-4 py-10 text-white">
       <div className="mx-auto max-w-xl">
-        <a href="/" className="text-sm font-semibold text-cyan-300 hover:text-cyan-200">Cable Tartak</a>
+        <a href="/" className="text-sm font-semibold text-cyan-300 hover:text-cyan-200">NEXFIBER</a>
         <header className="mb-7 mt-8">
           <h1 className="text-3xl font-black tracking-tight">Reportar Pago Móvil</h1>
           <p className="mt-2 text-sm text-slate-400">El pago se acredita después de verificarlo con el banco.</p>

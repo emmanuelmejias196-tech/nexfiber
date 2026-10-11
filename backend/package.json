@@ -1,5 +1,5 @@
 {
-  "name": "cable-tartak-api",
+  "name": "nexfiber-backend-core",
   "version": "1.0.0",
   "description": "API central de Cable Tartak: clientes, activacion de contratos, tickets, planes y pagos C2P",
   "main": "src/server.js",

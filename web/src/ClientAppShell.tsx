@@ -26,7 +26,7 @@ export default function ClientAppShell() {
       <div className="mx-auto max-w-5xl px-4 py-8">
         <header className="mb-6 flex flex-col gap-4 rounded-2xl border border-slate-800 bg-slate-900 p-5 md:flex-row md:items-center md:justify-between">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">Cable Tartak</p>
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">NEXFIBER</p>
             <h1 className="mt-2 text-2xl font-black">App cliente</h1>
           </div>
           <nav className="flex flex-wrap gap-2 text-xs font-semibold">
@@ -42,7 +42,7 @@ export default function ClientAppShell() {
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-400">Módulo</p>
             <h2 className="mt-2 text-3xl font-black">{statusText}</h2>
             <p className="mt-3 max-w-xl text-sm text-slate-400">
-              Esta vista es el punto de partida para la aplicación del cliente que se integrará con la web administrativa y la API central de Cable Tartak.
+              Esta vista es el punto de partida para la aplicación del cliente que se integrará con la web administrativa y la API central de NEXFIBER.
             </p>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
