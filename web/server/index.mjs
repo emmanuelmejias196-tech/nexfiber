@@ -337,7 +337,7 @@ async function handleApi(request, response, url) {
   const user = getSessionUser(request);
   const ownerCount = database.prepare("SELECT COUNT(*) AS count FROM users WHERE role = 'dueño'").get().count;
 
-  if (path === '/api/health' && method === 'GET') return send(response, 200, { ok: true, service: 'cable-tartak-api' });
+  if (path === '/api/health' && method === 'GET') return send(response, 200, { ok: true, service: 'nexfiber-web' });
 
   if (path === '/api/integrations/status' && method === 'GET') {
     const providers = getIntegrationStatus();

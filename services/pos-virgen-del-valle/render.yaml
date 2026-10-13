@@ -1,11 +1,11 @@
 services:
   - type: web
-    name: virgen-del-valle-api
+    name: nexfiber-pos-api
     runtime: node
     plan: free
     region: virginia
+    rootDir: services/pos-virgen-del-valle
     branch: main
-    repo: https://github.com/oscar12198512-ui/virgen-del-valle
     buildCommand: npm ci --omit=dev
     startCommand: npm start
     healthCheckPath: /health
@@ -16,9 +16,9 @@ services:
       - key: NODE_ENV
         value: production
       - key: APP_URL
-        value: "https://virgen-del-valle-web.onrender.com"
+        value: "https://nexfiber-pos-web.onrender.com"
       - key: CORS_ORIGIN
-        value: "https://virgen-del-valle-web.onrender.com,http://localhost:3000,http://localhost:5173,https://localhost"
+        value: "https://nexfiber-pos-web.onrender.com,https://virgen-del-valle-web.onrender.com,http://localhost:3000,http://localhost:5173,https://localhost"
       - key: VITE_FIREBASE_API_KEY
         value: "AIzaSyAnMvY9S2ZCRwaY-rCzMnSUGe6XSY7kl5k"
       - key: VITE_FIREBASE_AUTH_DOMAIN
@@ -41,12 +41,12 @@ services:
         sync: false
 
   - type: static
-    name: virgen-del-valle-web
+    name: nexfiber-pos-web
+    rootDir: services/pos-virgen-del-valle
     buildCommand: npm ci && npm run build
     staticPublishPath: dist
     region: virginia
     branch: main
-    repo: https://github.com/oscar12198512-ui/virgen-del-valle
     autoDeploy: true
     routes:
       - type: rewrite
@@ -66,4 +66,4 @@ services:
       - key: VITE_FIREBASE_APP_ID
         value: "1:637742279156:web:daa2a086b0b82d6ecc31a1"
       - key: VITE_FIREBASE_MEASUREMENT_ID
-        value: "G-705S44KGDC"
+        value: "G-705S44KGDC"

@@ -1,6 +1,13 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import sharp from 'sharp';
+
+let sharp;
+try {
+  sharp = (await import('sharp')).default;
+} catch {
+  console.log('sharp no esta instalado en este entorno. Se omitio la regeneracion y se usaran los assets existentes en public/.');
+  process.exit(0);
+}
 
 const root = process.cwd();
 const publicDir = path.join(root, 'public');
