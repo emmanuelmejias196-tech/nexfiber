@@ -47,15 +47,42 @@ class FirebaseManager(private val context: Context) {
                 "detalle" to ticket.detalle,
                 "fecha" to ticket.fecha,
                 "estado" to ticket.estado,
-                "notaTecnica" to ticket.notaTecnica
+                "notaTecnica" to (ticket.notaTecnica ?: ""),
+                "actualizadoEn" to System.currentTimeMillis()
             )
             firestore?.collection("reportes_fallas")
                 ?.document(ticket.id)
                 ?.set(ticketMap)
                 ?.await()
+            Log.d("FirebaseManager", "Ticket ${ticket.id} synced with Firestore")
             true
         } catch (e: Exception) {
             Log.w("FirebaseManager", "Firestore sync skipped: ${e.message}")
+            false
+        }
+    }
+
+    suspend fun syncCustomerToFirestore(customer: com.example.data.model.Customer): Boolean {
+        if (!isFirebaseAvailable || firestore == null) return false
+        return try {
+            val customerMap = hashMapOf(
+                "cedula" to customer.cedula,
+                "nombre" to customer.nombre,
+                "plan" to customer.plan,
+                "telefono" to (customer.telefono ?: ""),
+                "direccion" to (customer.direccion ?: ""),
+                "deuda" to customer.deuda,
+                "activo" to customer.activo,
+                "actualizadoEn" to System.currentTimeMillis()
+            )
+            firestore?.collection("clientes")
+                ?.document(customer.cedula)
+                ?.set(customerMap)
+                ?.await()
+            Log.d("FirebaseManager", "Customer ${customer.cedula} synced with Firestore")
+            true
+        } catch (e: Exception) {
+            Log.w("FirebaseManager", "Customer Firestore sync skipped: ${e.message}")
             false
         }
     }

@@ -76,6 +76,7 @@ class CableTartakRepository(private val context: Context) {
     private val db = AppDatabase.getDatabase(context)
     private val dao = db.dao()
     private val tokenStore = TokenStore.obtener(context).also { NetworkClient.registrarTokenStore(it) }
+    private val firebaseManager = com.example.data.firebase.FirebaseManager(context)
 
     private val api get() = NetworkClient.apiService
 
@@ -105,6 +106,7 @@ class CableTartakRepository(private val context: Context) {
                 val cuerpo = respuesta.body()!!
                 val cliente = cuerpo.aCustomer()
                 dao.insertCustomer(CustomerEntity.fromDomain(cliente, System.currentTimeMillis()))
+                firebaseManager.syncCustomerToFirestore(cliente)
                 return@withContext Pair(cliente, NetworkMode.OnlineApi(NetworkClient.getBaseUrl()))
             }
 
@@ -113,6 +115,7 @@ class CableTartakRepository(private val context: Context) {
             if (directo.isSuccessful && directo.body()?.nombre != null) {
                 val cliente = directo.body()!!.aCustomer()
                 dao.insertCustomer(CustomerEntity.fromDomain(cliente, System.currentTimeMillis()))
+                firebaseManager.syncCustomerToFirestore(cliente)
                 return@withContext Pair(cliente, NetworkMode.OnlineApi(NetworkClient.getBaseUrl()))
             }
         } catch (e: Exception) {
@@ -279,6 +282,7 @@ class CableTartakRepository(private val context: Context) {
                     sincronizado = true
                 )
                 dao.insertTicket(TicketEntity.fromDomain(ticket))
+                firebaseManager.syncTicketToFirestore(ticket)
                 return@withContext ReportCreationResult(ticket, true)
             }
 
@@ -297,6 +301,7 @@ class CableTartakRepository(private val context: Context) {
                     sincronizado = true
                 )
                 dao.insertTicket(TicketEntity.fromDomain(ticket))
+                firebaseManager.syncTicketToFirestore(ticket)
                 return@withContext ReportCreationResult(ticket, true)
             }
         } catch (e: Exception) {
@@ -314,6 +319,7 @@ class CableTartakRepository(private val context: Context) {
             sincronizado = false
         )
         dao.insertTicket(TicketEntity.fromDomain(pendiente))
+        firebaseManager.syncTicketToFirestore(pendiente)
         ReportCreationResult(pendiente, false)
     }
 
@@ -348,6 +354,7 @@ class CableTartakRepository(private val context: Context) {
                         sincronizado = true
                     )
                     dao.insertTicket(TicketEntity.fromDomain(confirmado))
+                    firebaseManager.syncTicketToFirestore(confirmado)
                     dao.deleteTicket(local.id)
                     enviados += 1
                 }
