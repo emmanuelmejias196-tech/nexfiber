@@ -2,6 +2,7 @@ package com.example.data.firebase
 
 import android.content.Context
 import android.util.Log
+import com.example.data.model.Customer
 import com.example.data.model.Ticket
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
@@ -39,7 +40,7 @@ class FirebaseManager(private val context: Context) {
     suspend fun syncTicketToFirestore(ticket: Ticket): Boolean {
         if (!isFirebaseAvailable || firestore == null) return false
         return try {
-            val ticketMap = hashMapOf(
+            val ticketMap = hashMapOf<String, Any>(
                 "id" to ticket.id,
                 "cedula" to ticket.cedula,
                 "tipo" to ticket.tipo,
@@ -62,17 +63,17 @@ class FirebaseManager(private val context: Context) {
         }
     }
 
-    suspend fun syncCustomerToFirestore(customer: com.example.data.model.Customer): Boolean {
+    suspend fun syncCustomerToFirestore(customer: Customer): Boolean {
         if (!isFirebaseAvailable || firestore == null) return false
         return try {
-            val customerMap = hashMapOf(
+            val customerMap = hashMapOf<String, Any>(
                 "cedula" to customer.cedula,
                 "nombre" to customer.nombre,
                 "plan" to customer.plan,
-                "telefono" to (customer.telefono ?: ""),
-                "direccion" to (customer.direccion ?: ""),
-                "deuda" to customer.deuda,
-                "activo" to customer.activo,
+                "telefono" to customer.telefono,
+                "direccion" to customer.direccion,
+                "saldoPendienteUsd" to customer.saldoPendienteUsd,
+                "servicioActivo" to customer.servicioActivo,
                 "actualizadoEn" to System.currentTimeMillis()
             )
             firestore?.collection("clientes")
